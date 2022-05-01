@@ -109,7 +109,6 @@ body {
 }
 
 .mouth {
-  border: 2px solid red;
   display: inline-block;
   transform: rotate(90deg);
   margin-left: 2.5rem;
