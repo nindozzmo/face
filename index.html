@@ -36,9 +36,8 @@
     wrapper.addEventListener('mousemove', (event) => {
 
       let move = (event.clientY * 0.07);
-      let x = move + "rem";
-
-      left.style.paddingRight = (x);
+      
+      left.style.paddingRight = (move + 'rem');
     })
 
   </script>
