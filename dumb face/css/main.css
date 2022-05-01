@@ -1,0 +1,113 @@
+/*css reset*/
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *: before, *: after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -box-sizing: border-box;
+}
+
+nav,
+header,
+footer,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-weight: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::ms-clear {
+  display: none;
+}
+button {
+  cursor: pointer;
+}
+button::moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+a,
+a:visited {
+  text-decorations: none;
+}
+a:hover {
+  text-decorations: none;
+}
+ul,
+li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/*end of css reset*/
+
+body {
+  font-size: 20px;
+  color: black;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.face {
+  background: linear-gradient(160deg, #601df7, #8800ff);
+  width: clamp(400px, 60%, 1000px);
+  height: 300px;
+  font-size: 10rem;
+  text-align: center;
+  line-height: 7rem;
+}
+
+.eyes {
+  display: flex;
+  justify-content: center;
+  grid-template-columns: 50% 50%;
+}
+
+.nose {
+  padding-left: 5rem;
+}
+
+.mouth {
+  transform: rotate(90deg);
+  margin: -2rem 0 0 2.5rem;
+}
