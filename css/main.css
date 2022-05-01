@@ -75,8 +75,9 @@ h6 {
 /*end of css reset*/
 
 body {
+  background-color: rgb(199, 203, 214);
   font-size: 20px;
-  color: black;
+  color: white;
 }
 
 .wrapper {
@@ -89,12 +90,14 @@ body {
 }
 
 .face {
-  background: linear-gradient(160deg, #601df7, #8800ff);
+  border-radius: 20px;
+  background: linear-gradient(180deg, #5219d6, #a339ff);
   width: clamp(400px, 60%, 1000px);
   height: 300px;
   font-size: 10rem;
   text-align: center;
   line-height: 7rem;
+  box-shadow: 4px 4px 8px 0px rgba(20, 43, 66, 0.3);
 }
 
 .eyes {
