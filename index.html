@@ -41,6 +41,14 @@
       left.style.transform = `translateX(-${move}rem)`;
       right.style.transform = `translateX(${move}rem)`;
     })
+    
+    wrapper.addEventListener('touchmove', (event) => {
+
+      let move = (event.clientY * 0.07);
+      
+      left.style.transform = `translateX(-${move}rem)`;
+      right.style.transform = `translateX(${move}rem)`;
+    })
 
   </script>
 
