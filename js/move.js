@@ -6,7 +6,7 @@ window.onload = function () {
   let mouth = document.querySelector('.mouth');
   
   //for mouse devices
-  wrapper.addEventListener('mousemove', function(event) {    
+  wrapper.addEventListener('mousemove', event => {    
     let move = (event.clientY * 0.07);
     if (move < 0) {
       move = 0;
@@ -32,7 +32,7 @@ window.onload = function () {
   })
   
   //for touch devices
-  wrapper.addEventListener('touchmove', function(event) {    
+  wrapper.addEventListener('touchmove', event => {    
     let move = (event.touches[0].pageY * 0.07);
     if (move < 0) {
       move = 0;
