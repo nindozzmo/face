@@ -5,25 +5,25 @@ window.onload = function () {
   let right = document.querySelector('.right-eye');
   let mouth = document.querySelector('.mouth');
 
+  function preventCollision(x) {
+    x >= 0 ? x *= 0.07 : x = 0;
+    return x;
+  }
+  
   function eyesMove(x) {
-    let y;
-    x >= 0 ? y = x * 0.07 : y = 0;
-
-    left.style.transform = `translateX(-${y}rem)`;
-    right.style.transform = `translateX(${y}rem)`;
+    left.style.transform = `translateX(-${x}rem)`;
+    right.style.transform = `translateX(${x}rem)`;
   }
 
   function mouthChange(x) {
     mouth.innerHTML = ')';
     mouth.style.marginTop = 0;
 
-    let y = x * 0.07;
-
-    if (y > 10 && y <= 20) {
+    if (x > 10 && x <= 20) {
       mouth.innerHTML = 'D';
       mouth.style.marginTop = '2rem';
     }
-    else if (y > 20) {
+    else if (x > 20) {
       mouth.innerHTML = 'O';
       mouth.style.marginTop = '3rem';
     }
@@ -31,14 +31,14 @@ window.onload = function () {
 
   // for mouse devices
   wrapper.addEventListener('mousemove', event => {
-    eyesMove(event.clientY);
-    mouthChange(event.clientY);
+    eyesMove(preventCollision(event.clientY));
+    mouthChange(preventCollision(event.clientY));
   });
 
   //for touch devices
   wrapper.addEventListener('touchmove', event => {
-    eyesMove(event.touches[0].pageY);
-    mouthChange(event.touches[0].pageY);
+    eyesMove(preventCollision(event.touches[0].pageY));
+    mouthChange(preventCollision(event.touches[0].pageY));
   });
 
 }
