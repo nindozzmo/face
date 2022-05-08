@@ -4,57 +4,41 @@ window.onload = function () {
   let left = document.querySelector('.left-eye');
   let right = document.querySelector('.right-eye');
   let mouth = document.querySelector('.mouth');
-  
-  //for mouse devices
-  wrapper.addEventListener('mousemove', event => {    
-    let move = (event.clientY * 0.07);
-    if (move < 0) {
-      move = 0;
-    }
-    
-    //eyes movement
-    left.style.transform = `translateX(-${move}rem)`;
-    right.style.transform = `translateX(${move}rem)`;    
-    
-    //mouth placeholder
+
+  function eyesMove(x) {
+    let y;
+    x >= 0 ? y = x * 0.07 : y = 0;
+
+    left.style.transform = `translateX(-${y}rem)`;
+    right.style.transform = `translateX(${y}rem)`;
+  }
+
+  function mouthChange(x) {
     mouth.innerHTML = ')';
     mouth.style.marginTop = 0;
-    
-    //mouth animation  
-    if (move > 10 && move < 20) {
+
+    let y = x * 0.07;
+
+    if (y > 10 && y <= 20) {
       mouth.innerHTML = 'D';
       mouth.style.marginTop = '2rem';
     }
-    else if (move > 20) {
+    else if (y > 20) {
       mouth.innerHTML = 'O';
       mouth.style.marginTop = '3rem';
     }
-  })
-  
+  }
+
+  // for mouse devices
+  wrapper.addEventListener('mousemove', event => {
+    eyesMove(event.clientY);
+    mouthChange(event.clientY);
+  });
+
   //for touch devices
-  wrapper.addEventListener('touchmove', event => {    
-    let move = (event.touches[0].pageY * 0.07);
-    if (move < 0) {
-      move = 0;
-    }
-    
-    //eyes movement
-    left.style.transform = `translateX(-${move}rem)`;
-    right.style.transform = `translateX(${move}rem)`;    
-    
-    //mouth placeholder
-    mouth.innerHTML = ')';
-    mouth.style.marginTop = 0;
-    
-    //mouth animation  
-    if (move > 10 && move < 20) {
-      mouth.innerHTML = 'D';
-      mouth.style.marginTop = '2rem';
-    }
-    else if (move > 20) {
-      mouth.innerHTML = 'O';
-      mouth.style.marginTop = '3rem';
-    }
-  })
-  
+  wrapper.addEventListener('touchmove', event => {
+    eyesMove(event.touches[0].pageY);
+    mouthChange(event.touches[0].pageY);
+  });
+
 }
